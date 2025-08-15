@@ -31,7 +31,7 @@ resource "terraform_data" "k3sup_control" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      k3sup install --print-config=false \
+      k3sup install \
         --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.control.ipv4_address}' \
         --k3s-channel='${var.k3s_channel}' \
@@ -136,7 +136,7 @@ resource "helm_release" "cilium" {
   chart      = "cilium"
   repository = "https://helm.cilium.io"
   namespace  = "kube-system"
-  version    = "1.16.5"
+  version    = "1.17.6"
   wait       = true
 
   set {
@@ -167,7 +167,7 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   chart      = "hcloud-cloud-controller-manager"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "1.21.0"
+  version    = "1.26.0"
   wait       = true
 
   set {
@@ -180,6 +180,11 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
     value = tostring(var.use_cloud_routes)
     type  = "string"
   }
+
+  set {
+    name  = "env.HCLOUD_ENDPOINT.value"
+    value = var.hccm_hcloud_endpoint
+  }
 }
 
 resource "helm_release" "hcloud_csi_driver" {
@@ -191,7 +196,7 @@ resource "helm_release" "hcloud_csi_driver" {
   chart      = "hcloud-csi"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "2.11.0"
+  version    = "2.17.0"
   wait       = true
 }
 
@@ -202,7 +207,7 @@ resource "helm_release" "docker_registry" {
   chart      = "docker-registry"
   repository = "https://helm.twun.io"
   namespace  = "kube-system"
-  version    = "2.2.3"
+  version    = "3.0.0"
   wait       = true
 
   set {

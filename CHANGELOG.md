@@ -1,5 +1,31 @@
 # Changelog
 
+## [v0.9.1](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.1)
+
+### Bug Fixes
+
+- k3sup breaking changes (#117)
+
+## [v0.9.0](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.0)
+
+### Features
+
+- support Kubernetes v1.33
+
+## [0.8.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.7.0...v0.8.0) (2025-02-06)
+
+
+### Features
+
+* allow setting HCLOUD_ENDPOINT env for hccm ([#83](https://github.com/hetznercloud/kubernetes-dev-env/issues/83)) ([06375c4](https://github.com/hetznercloud/kubernetes-dev-env/commit/06375c49abfbacb7b432477751b7a589d3528f83))
+
+## [0.7.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.6.0...v0.7.0) (2025-01-10)
+
+
+### Features
+
+* arbitrary additional labels on Hetzner resources ([#55](https://github.com/hetznercloud/kubernetes-dev-env/issues/55)) ([b3f4b39](https://github.com/hetznercloud/kubernetes-dev-env/commit/b3f4b39f35af1e3afb157d13113fdabb5a6d6fe5))
+
 ## [0.6.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.2...v0.6.0) (2024-10-23)
 
 

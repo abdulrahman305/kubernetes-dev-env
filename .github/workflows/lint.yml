@@ -9,7 +9,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup python
         uses: actions/setup-python@v5
@@ -18,7 +18,7 @@ jobs:
 
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version: v1.8.7 # renovate: datasource=github-releases depName=opentofu/opentofu
+          tofu_version: v1.10.5 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
       - uses: pre-commit/action@v3.0.1

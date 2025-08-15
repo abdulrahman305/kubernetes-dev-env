@@ -21,11 +21,11 @@ jobs:
         working-directory: example
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version: v1.8.7 # renovate: datasource=github-releases depName=opentofu/opentofu
+          tofu_version: v1.10.5 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
       - uses: yokawasa/action-setup-kube-tools@v0.11.2
@@ -33,11 +33,15 @@ jobs:
           setup-tools: |
             kubectl
             skaffold
-          kubectl: v1.31.4 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-          skaffold: v2.13.2 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
+          kubectl: v1.33.4 # renovate: datasource=github-releases depName=kubernetes/kubernetes
+          skaffold: v2.16.1 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
 
       - name: Setup k3sup
-        run: curl -sLS https://get.k3sup.dev | sh
+        env:
+          K3SUP_VERSION: 0.13.10 # renovate: datasource=github-releases depName=alexellis/k3sup
+        run: |
+          curl https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup -sSL -o /usr/local/bin/k3sup
+          chmod +x /usr/local/bin/k3sup
 
       - uses: actions/setup-go@v5
         with:
