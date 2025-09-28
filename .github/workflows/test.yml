@@ -25,15 +25,15 @@ jobs:
 
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version: v1.10.5 # renovate: datasource=github-releases depName=opentofu/opentofu
+          tofu_version: v1.10.6 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
-      - uses: yokawasa/action-setup-kube-tools@v0.11.2
+      - uses: yokawasa/action-setup-kube-tools@v0.13.1
         with:
           setup-tools: |
             kubectl
             skaffold
-          kubectl: v1.34.0 # renovate: datasource=github-releases depName=kubernetes/kubernetes
+          kubectl: v1.34.1 # renovate: datasource=github-releases depName=kubernetes/kubernetes
           skaffold: v2.16.1 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
 
       - name: Setup k3sup
@@ -43,7 +43,7 @@ jobs:
           curl https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup -sSL -o /usr/local/bin/k3sup
           chmod +x /usr/local/bin/k3sup
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version-file: test-app/go.mod
 
