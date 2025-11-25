@@ -136,7 +136,7 @@ resource "helm_release" "cilium" {
   chart      = "cilium"
   repository = "https://helm.cilium.io"
   namespace  = "kube-system"
-  version    = "1.18.2"
+  version    = "1.18.4"
   wait       = true
 
   set = [
@@ -169,7 +169,7 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   chart      = "hcloud-cloud-controller-manager"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "1.27.0"
+  version    = "1.28.0"
   wait       = true
 
   set = [
@@ -198,7 +198,7 @@ resource "helm_release" "hcloud_csi_driver" {
   chart      = "hcloud-csi"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "2.18.0"
+  version    = "2.18.1"
   wait       = true
 }
 
@@ -207,7 +207,7 @@ resource "helm_release" "docker_registry" {
 
   name       = "docker-registry"
   chart      = "docker-registry"
-  repository = "https://helm.twun.io"
+  repository = "https://twuni.github.io/docker-registry.helm"
   namespace  = "kube-system"
   version    = "3.0.0"
   wait       = true

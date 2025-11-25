@@ -1,5 +1,17 @@
 # Changelog
 
+## [v0.9.4](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.4)
+
+### Bug Fixes
+
+- deprecated docker registry helm url (#155)
+
+## [v0.9.3](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.3)
+
+### Bug Fixes
+
+- deprecated server types (#151)
+
 ## [v0.9.2](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.2)
 
 ### Bug Fixes
