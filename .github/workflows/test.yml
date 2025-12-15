@@ -25,7 +25,7 @@ jobs:
 
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version: v1.10.7 # renovate: datasource=github-releases depName=opentofu/opentofu
+          tofu_version: v1.11.1 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
       - uses: yokawasa/action-setup-kube-tools@v0.13.1
@@ -33,7 +33,7 @@ jobs:
           setup-tools: |
             kubectl
             skaffold
-          kubectl: v1.34.2 # renovate: datasource=github-releases depName=kubernetes/kubernetes
+          kubectl: v1.34.3 # renovate: datasource=github-releases depName=kubernetes/kubernetes
           skaffold: v2.17.0 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
 
       - name: Setup k3sup
